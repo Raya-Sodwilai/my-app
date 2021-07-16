@@ -1,8 +1,8 @@
 import React,{ Component } from 'react';
 import { Modal,Button, Row, Col, Form,Image } from 'react-bootstrap';
 
-export class AddEmpModal extends Component{
-    constructor(props){
+export class AddEmpModal extends Component {
+    constructor(props) {
         super(props);
         this.state={deps:[]};
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -12,10 +12,10 @@ export class AddEmpModal extends Component{
     photofilename = "anonymous.png";
     imagesrc = process.env.REACT_APP_PHOTOPATH+this.photofilename;
 
-    componentDidMount(){
+    componentDidMount() {
         fetch(process.env.REACT_APP_API+'department')
         .then(response=>response.json())
-        .then(data=>{
+        .then(data => {
             this.setState({deps:data});
         });
     }
@@ -37,11 +37,11 @@ export class AddEmpModal extends Component{
 
             })
         })
-        .then(res=>res.json())
-        .then((result)=>{
+        .then(res => res.json())
+        .then((result) => {
             alert(result);
         },
-        (error)=>{
+        (error) => {
             alert('Failed');
         })
     }
@@ -61,11 +61,11 @@ export class AddEmpModal extends Component{
             method:'POST',
             body:formData
         })
-        .then(res=>res.json())
-        .then((result)=>{
+        .then(res => res.json())
+        .then((result) => { 
             this.imagesrc=process.env.REACT_APP_PHOTOPATH+result;
         },
-        (error)=>{
+        (error) => {
             alert('Failed');
         })
         

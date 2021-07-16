@@ -20,11 +20,11 @@ export class AddDepModal extends Component{
         DepartmentName:event.target.DepartmentName.value
       })
     })
-    .then(res=>res.json())
-    .then((result)=>{
+    .then(res => res.json())
+    .then((result) => {
         alert(result);
     },
-    (error)=>{
+    (error) => { 
         alert('Failed');
     })
 }
